@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Real Time Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Welcome to Real-Time Chat</h1>
+
+    <h3>Select a Chat Room</h3>
+
+    <div class="rooms">
+
+        <a href="/chat?room=General">
+            <button>General Chat</button>
+        </a>
+
+        <a href="/chat?room=Technology">
+            <button>Technology</button>
+        </a>
+
+        <a href="/chat?room=Sports">
+            <button>Sports</button>
+        </a>
+
+        <a href="/chat?room=Private">
+            <button>Private Chat</button>
+        </a>
+
+    </div>
+
+    <br>
+
+    <a href="/">
+        <button>Logout</button>
+    </a>
+
+    <a href="/logout">
+    <button style="background:#dc3545;">
+        Logout
+    </button>
+    </a>
+
+</div>
+
+</body>
+</html>

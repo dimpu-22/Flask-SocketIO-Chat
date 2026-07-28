@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Chat</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <h1>Real-Time Chat Room</h1>
+
+    <h3 id="online-users">🟢 Online Users: 0</h3>
+
+    <div id="messages" class="messages">
+
+        <p id="typing-status" style="color:gray;font-style:italic;"></p>
+
+    {% for msg in messages %}
+        <div class="message">
+            <strong>[{{ msg.timestamp.strftime('%I:%M %p') }}] {{ msg.sender }}:</strong>
+            {{ msg.message }}
+        </div>
+    {% endfor %}
+
+    </div>
+
+    <div class="chat-box">
+
+        <!-- Hidden username field -->
+        <input
+            type="hidden"
+            id="username"
+            value="{{ session['username'] }}"
+        >
+
+        <input
+            type="text"
+            id="message"
+            placeholder="Type your message..."
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+    <br>
+
+    <a href="/dashboard">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+</body>
+</html>
